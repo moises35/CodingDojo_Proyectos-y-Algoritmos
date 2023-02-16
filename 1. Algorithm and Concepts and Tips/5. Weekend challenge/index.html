@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Este fin de semana, para un desafío, crea un juego de preguntas donde se completen espacios en blanco. 
+            Pregunta el nombre del usuario, luego refiérete al usuario por su nombre mientras le haces una serie de 
+            preguntas que has almacenado en un arreglo. Utiliza la función prompt() para obtener cada entrada del 
+            usuario y compararla con la respuesta que esperabas. Cuando el usuario ingrese "Q" (para salir), o 
+            quizás cuando el usuario presione [Cancel], sale del juego y se imprimen las estadísticas del juego
+            en la consola: nombre de usuario, número de preguntas respondidas y preguntas correctas.
+        */
+
+        let preguntas = [
+            {
+                pregunta: "¿Cuál es el nombre del presidente de Paraguay?",
+                respuesta: "Mario Abdo"
+            },
+            {
+                pregunta: "¿Cual es el nombre real de Spiderman?",
+                respuesta: "Peter Parker"
+            },
+            {
+                pregunta: "¿Cual es el nombre real de Batman?",
+                respuesta: "Bruce Wayne"
+            },
+            {
+                pregunta: "¿Cual es el nombre real de Superman?",
+                respuesta: "Clark Kent"
+            }
+        ];
+
+        let nombreUsuario = prompt("¿Cuál es tu nombre?") || "Anónimo";
+        let respuestasCorrectas = 0;
+        let respuestasIncorrectas = 0;
+
+        for (let i = 0; i < preguntas.length; i++) {
+            let respuestaUsuario = prompt(`${nombreUsuario}, ${preguntas[i].pregunta}`);
+            if (respuestaUsuario === "Q" || respuestaUsuario === null) {
+                break;
+            }
+            if (respuestaUsuario === preguntas[i].respuesta) {
+                respuestasCorrectas++;
+            } else {
+                respuestasIncorrectas++;
+            }
+        }
+
+        console.log("Nombre de usuario: " + nombreUsuario);
+        console.log("Respuestas correctas: " + respuestasCorrectas);
+        console.log("Respuestas incorrectas: " + respuestasIncorrectas);
+    </script>
+</body>
+
+</html>
